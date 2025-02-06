@@ -1,0 +1,158 @@
+<!--Name: Shaunak Divati
+    G#: G01455471
+    Email: sdivati@gmu.edu-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Survey Form</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .form-container {max-width: 800px; margin: 20px auto; padding: 20px}
+        .required {color: red}
+    </style>
+</head>
+<body class="w3-light-grey">
+
+<div class="w3-container w3-white form-container w3-card-4">
+    <h2 class="w3-center w3-text-green">Student Survey Form</h2>
+    
+    <form class="w3-container" action="/submit" method="POST">
+        <!-- Personal Information Section -->
+        <fieldset class="w3-border-0">
+            <legend class="w3-large w3-text-green">Personal Information</legend>
+            
+            <div class="w3-row-padding">
+                <div class="w3-half w3-section">
+                    <label>First Name <span class="required">*</span></label>
+                    <input class="w3-input w3-border" type="text" name="firstname" required>
+                </div>
+                
+                <div class="w3-half w3-section">
+                    <label>Last Name <span class="required">*</span></label>
+                    <input class="w3-input w3-border" type="text" name="lastname" required>
+                </div>
+            </div>
+
+            <div class="w3-section">
+                <label>Street Address <span class="required">*</span></label>
+                <input class="w3-input w3-border" type="text" name="address" required>
+            </div>
+
+            <div class="w3-row-padding">
+                <div class="w3-third w3-section">
+                    <label>City <span class="required">*</span></label>
+                    <input class="w3-input w3-border" type="text" name="city" required>
+                </div>
+                
+                <div class="w3-third w3-section">
+                    <label>State <span class="required">*</span></label>
+                    <input class="w3-input w3-border" type="text" name="state" required>
+                </div>
+                
+                <div class="w3-third w3-section">
+                    <label>Zip Code <span class="required">*</span></label>
+                    <input class="w3-input w3-border" type="text" name="zip" pattern="\d{5}" required>
+                </div>
+            </div>
+
+            <div class="w3-row-padding">
+                <div class="w3-half w3-section">
+                    <label>Telephone <span class="required">*</span></label>
+                    <input class="w3-input w3-border" type="tel" name="phone" pattern="[0-9]{10}" required>
+                </div>
+                
+                <div class="w3-half w3-section">
+                    <label>Email <span class="required">*</span></label>
+                    <input class="w3-input w3-border" type="email" name="email" required>
+                </div>
+            </div>
+
+            <div class="w3-section">
+                <label>Date of Survey <span class="required">*</span></label>
+                <input class="w3-input w3-border" type="date" name="survey_date" required>
+            </div>
+        </fieldset>
+
+        <!-- Campus Preferences -->
+        <fieldset class="w3-border-0 w3-section">
+            <legend class="w3-large w3-text-green">Campus Preferences</legend>
+            
+            <div class="w3-section">
+                <label>What did you like most about the campus? (Check all that apply)</label><br>
+                <input class="w3-check" type="checkbox" name="liked[]" value="students" id="students">
+                <label for="students">Students</label><br>
+                
+                <input class="w3-check" type="checkbox" name="liked[]" value="location" id="location">
+                <label for="location">Location</label><br>
+                
+                <input class="w3-check" type="checkbox" name="liked[]" value="campus" id="campus">
+                <label for="campus">Campus</label><br>
+                
+                <input class="w3-check" type="checkbox" name="liked[]" value="atmosphere" id="atmosphere">
+                <label for="atmosphere">Atmosphere</label><br>
+                
+                <input class="w3-check" type="checkbox" name="liked[]" value="dorm" id="dorm">
+                <label for="dorm">Dorm Rooms</label><br>
+                
+                <input class="w3-check" type="checkbox" name="liked[]" value="sports" id="sports">
+                <label for="sports">Sports</label>
+            </div>
+        </fieldset>
+
+        <!-- Interest Source -->
+        <fieldset class="w3-border-0 w3-section">
+            <legend class="w3-large w3-text-green">Interest Source</legend>
+            <div class="w3-section">
+                <label>How did you become interested in the university?</label><br>
+                <input class="w3-radio" type="radio" name="interest" value="friends" id="friends" required>
+                <label for="friends">Friends</label><br>
+                
+                <input class="w3-radio" type="radio" name="interest" value="tv" id="tv">
+                <label for="tv">Television</label><br>
+                
+                <input class="w3-radio" type="radio" name="interest" value="internet" id="internet">
+                <label for="internet">Internet</label><br>
+                
+                <input class="w3-radio" type="radio" name="interest" value="other" id="other">
+                <label for="other">Other</label>
+            </div>
+        </fieldset>
+
+        <!-- Recommendation -->
+        <div class="w3-section">
+            <label>Likelihood of recommending the school:</label>
+            <select class="w3-select w3-border" name="recommend" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="very_likely">Very Likely</option>
+                <option value="likely">Likely</option>
+                <option value="unlikely">Unlikely</option>
+            </select>
+        </div>
+
+        <!-- Raffle -->
+        <div class="w3-section">
+            <label>Raffle Entry (10+ numbers, 1-100, comma-separated):</label>
+            <input class="w3-input w3-border" type="text" name="raffle" 
+                   pattern="^([1-9][0-9]?|100)(,([1-9][0-9]?|100)){9,}$"
+                   title="Enter at least 10 numbers between 1-100 separated by commas" required>
+        </div>
+
+        <!-- Comments -->
+        <div class="w3-section">
+            <label>Additional Comments:</label>
+            <textarea class="w3-input w3-border" rows="4" name="comments"></textarea>
+        </div>
+
+        <!-- Buttons -->
+        <div class="w3-section w3-center">
+            <button type="submit" class="w3-button w3-blue w3-large">Submit Survey</button>
+            <button type="reset" class="w3-button w3-red w3-large">Cancel</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
